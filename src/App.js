@@ -1,34 +1,36 @@
 import React, { Component } from "react";
 import logo from "./logo.svg";
 import "./App.css";
+import Movie from "./Movie";
 
-const welcom = "Edit src/App.js and save to reload";
+const movies = [
+  {
+    id: 1,
+    title: "Harry Potter"
+  },
+  {
+    id: 2,
+    title: "Spider Man"
+  },
+  {
+    id: 3,
+    title: "36th Chamber of Shaolin"
+  },
+  {
+    id: 4,
+    title: "Riadly 1"
+  }
+];
 
 class App extends Component {
-  submit = () => {
-    console.log(this.text.value);
-  };
-
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            <Welcome text={welcom} />
-          </p>
-          <input type="text" ref={input => (this.text = input)} />
-          <button onClick={this.submit}>Show Value</button>
-        </header>
+        {movies.map(movie => {
+          return <Movie key={movie.id} movie={movie} />;
+        })}
       </div>
     );
-  }
-}
-
-class Welcome extends Component {
-  render() {
-    const { text, toggle } = this.props;
-    return <h1 className="App-title">{text}</h1>;
   }
 }
 

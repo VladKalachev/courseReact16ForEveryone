@@ -19,11 +19,13 @@ import PropTypes from "prop-types";
 //   }
 // }
 
+const POSTER_PATH = "http://image.tmdb.org/t/p/w154";
+
 const Movie = ({ movie }) => {
   return (
     <div>
       <h1>{movie.title}</h1>
-      <p>{movie.overview}</p>
+      <img src={`${POSTER_PATH}${movie.poster_path}`} alt={movie.title} />
     </div>
   );
 };

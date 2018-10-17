@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import logo from "./logo.svg";
 import "./App.css";
 
+const welcom = "Edit src/App.js and save to reload";
+
 class App extends Component {
   render() {
     return (
@@ -9,7 +11,7 @@ class App extends Component {
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <p>
-            Edit <code>src/App.js</code> and save to reload.
+            <Welcome />
           </p>
           <a
             className="App-link"
@@ -22,6 +24,12 @@ class App extends Component {
         </header>
       </div>
     );
+  }
+}
+
+class Welcome extends Component {
+  render() {
+    return <h1 className="App-title">{welcom}</h1>;
   }
 }
 

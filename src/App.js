@@ -5,13 +5,21 @@ import "./App.css";
 const welcom = "Edit src/App.js and save to reload";
 
 class App extends Component {
+  state = {
+    toggle: true
+  };
+
+  heandClick = () => {
+    this.setState({ toggle: !this.state.toggle });
+  };
+
   render() {
     return (
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <p>
-            <Welcome />
+            <Welcome text={welcom} />
           </p>
           <a
             className="App-link"
@@ -21,6 +29,8 @@ class App extends Component {
           >
             Learn React
           </a>
+          {this.state.toggle && <p>This should show and hide</p>}
+          <button onClick={this.heandClick}>Show / Hidden</button>
         </header>
       </div>
     );
@@ -29,7 +39,8 @@ class App extends Component {
 
 class Welcome extends Component {
   render() {
-    return <h1 className="App-title">{welcom}</h1>;
+    const { text } = this.props;
+    return <h1 className="App-title">{text}</h1>;
   }
 }
 

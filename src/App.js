@@ -5,12 +5,8 @@ import "./App.css";
 const welcom = "Edit src/App.js and save to reload";
 
 class App extends Component {
-  state = {
-    toggle: true
-  };
-
-  heandClick = () => {
-    this.setState({ toggle: !this.state.toggle });
+  submit = () => {
+    console.log(this.text.value);
   };
 
   render() {
@@ -21,16 +17,8 @@ class App extends Component {
           <p>
             <Welcome text={welcom} />
           </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-          {this.state.toggle && <p>This should show and hide</p>}
-          <button onClick={this.heandClick}>Show / Hidden</button>
+          <input type="text" ref={input => (this.text = input)} />
+          <button onClick={this.submit}>Show Value</button>
         </header>
       </div>
     );
@@ -39,7 +27,7 @@ class App extends Component {
 
 class Welcome extends Component {
   render() {
-    const { text } = this.props;
+    const { text, toggle } = this.props;
     return <h1 className="App-title">{text}</h1>;
   }
 }

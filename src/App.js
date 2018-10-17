@@ -10,7 +10,8 @@ const movies = [
   },
   {
     id: 2,
-    title: "Spider Man"
+    title: "Spider Man",
+    disc: "desc"
   },
   {
     id: 3,
@@ -18,7 +19,8 @@ const movies = [
   },
   {
     id: 4,
-    title: "Riadly 1"
+    title: "Riadly 1",
+    disc: "desc"
   }
 ];
 
@@ -27,7 +29,7 @@ class App extends Component {
     return (
       <div className="App">
         {movies.map(movie => {
-          return <Movie key={movie.id} movie={movie} />;
+          return <Movie key={movie.id} movie={movie} disc={movie.disc} />;
         })}
       </div>
     );

@@ -9,8 +9,8 @@ const App = () => (
   <Router>
     <div className="App">
       <Switch>
-        <Route exact path="/test" component={Test} />
-        <Route path="/" component={MoviesList} />
+        <Route exact path="/" component={MoviesList} />
+        <Route path="/:id" component={Test} />
       </Switch>
     </div>
   </Router>
@@ -18,4 +18,4 @@ const App = () => (
 
 export default App;
 
-const Test = () => <h1>Test</h1>;
+const Test = ({ match }) => <p>{match.params.id}</p>;

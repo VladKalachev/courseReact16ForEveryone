@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
 import "./App.css";
 import Movie from "./Movie";
 
@@ -26,10 +26,12 @@ class MoviesList extends Component {
   }
 
   render() {
+    //clg
+    const { match } = this.props;
     return (
       <div>
         {this.state.movies.map(movie => {
-          return <Movie key={movie.id} movie={movie} />;
+          return <Movie key={movie.id} movie={movie} match={match} />;
         })}
       </div>
     );
